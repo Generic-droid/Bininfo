@@ -10,6 +10,8 @@ data class BinInfoEntity(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     override val id: Int = 0,
+    @ColumnInfo(name = "bin_number")
+    override val binNumber: String,
     @ColumnInfo(name = "number_length")
     override val numberLength: String,
     @ColumnInfo(name = "number_luhn")
@@ -44,5 +46,4 @@ data class BinInfoEntity(
     override val bankPhone: String,
     @ColumnInfo(name = "bank_city")
     override val bankCity: String
-
 ) : BinInfo

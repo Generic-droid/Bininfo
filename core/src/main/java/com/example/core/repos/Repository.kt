@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface Repository {
 
-    suspend fun fetchBinInfo(query: String)
+    suspend fun fetchBinInfo(query: String): BinInfo
 
     fun getBinInfoList(): Flow<List<BinInfo>>
 }

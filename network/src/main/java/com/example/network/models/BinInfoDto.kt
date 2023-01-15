@@ -1,34 +1,61 @@
 package com.example.network.models
 
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
 data class BinInfoDto(
-    val id: Int = 0,
+    @Json(name = "number")
     val number: NumberDto,
+    @Json(name = "scheme")
     val scheme: String?,
+    @Json(name = "type")
     val type: String?,
+    @Json(name = "brand")
     val brand: String?,
-    val prepaid: String?,
+    @Json(name = "prepaid")
+    val prepaid: Boolean?,
+    @Json(name = "country")
     val country: CountryDto,
-    val bank: BankDto,
-)
+    @Json(name = "bank")
+    val bank: BankDto
+) {
 
-data class NumberDto(
-    val length: String?,
-    val luhn: String?
-)
+    @JsonClass(generateAdapter = true)
+    data class NumberDto(
+        @Json(name = "length")
+        val length: String?,
+        @Json(name = "luhn")
+        val luhn: Boolean?
+    )
 
-data class CountryDto(
-    val numeric: String?,
-    val alpha2: String?,
-    val name: String?,
-    val emoji: String?,
-    val currency: String?,
-    val latitude: String?,
-    val longitude: String?
-)
+    @JsonClass(generateAdapter = true)
+    data class CountryDto(
+        @Json(name = "numeric")
+        val numeric: String?,
+        @Json(name = "alpha2")
+        val alpha2: String?,
+        @Json(name = "name")
+        val name: String?,
+        @Json(name = "emoji")
+        val emoji: String?,
+        @Json(name = "currency")
+        val currency: String?,
+        @Json(name = "latitude")
+        val latitude: String?,
+        @Json(name = "longitude")
+        val longitude: String?
+    )
 
-data class BankDto(
-    val name: String?,
-    val url: String?,
-    val phone: String?,
-    val city: String?
-)
+    @JsonClass(generateAdapter = true)
+    data class BankDto(
+        @Json(name = "name")
+        val name: String?,
+        @Json(name = "url")
+        val url: String?,
+        @Json(name = "phone")
+        val phone: String?,
+        @Json(name = "city")
+        val city: String?
+    )
+}

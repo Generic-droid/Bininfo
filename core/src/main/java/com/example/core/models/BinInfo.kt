@@ -2,6 +2,7 @@ package com.example.core.models
 
 interface BinInfo {
     val id: Int
+    val binNumber: String
     val numberLength: String
     val numberLuhn: String
     val scheme: String

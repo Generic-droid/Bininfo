@@ -12,11 +12,19 @@ class BinInfoMapper : EntityMapper<BinInfoEntity, BinInfoDto> {
     override fun mapToEntity(model: BinInfoDto): BinInfoEntity {
         return BinInfoEntity(
             numberLength = model.number.length ?: "",
-            numberLuhn = model.number.luhn ?: "",
+            numberLuhn = when (model.number.luhn) {
+                true -> "Yes"
+                false -> "No"
+                else -> ""
+            },
             scheme = model.scheme ?: "",
             type = model.type ?: "",
-            brand = model.type ?: "",
-            prepaid = model.prepaid ?: "",
+            brand = model.brand ?: "",
+            prepaid = when (model.prepaid) {
+                true -> "Yes"
+                false -> "No"
+                else -> ""
+            },
             countryNumeric = model.country.numeric ?: "",
             countryAlpha2 = model.country.alpha2 ?: "",
             countryName = model.country.name ?: "",
